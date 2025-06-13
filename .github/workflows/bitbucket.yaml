@@ -1,0 +1,23 @@
+name: Build on Bitbucket webhook
+
+on:
+  repository_dispatch:
+    type: [Bitbucket_event]
+
+jobs:
+  build: 
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: set up java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+      
+      - name: Build with maven
+        uses: mvn clean install
+      
