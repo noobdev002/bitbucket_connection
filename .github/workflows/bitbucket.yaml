@@ -23,6 +23,7 @@ jobs:
 
       - name: Build with Maven
         run: |
-          cd maven-sample
+          cd maven-sample/sample
           mvn clean install
         shell: bash
+
